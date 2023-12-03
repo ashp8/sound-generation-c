@@ -17,11 +17,7 @@ int main(void){
 	snd_pcm_open(&pcm_handle, "default", SND_PCM_STREAM_PLAYBACK, 0);
 	
 	// set the PCM format
-	snd_pcm_set_params(pcm_handle,
-										SND_PCM_FORMAT_S16_LE,
-										SND_PCM_ACCESS_RW_INTERLEAVED,
-										1,
-										sampleRate, 1, 50000);
+	snd_pcm_set_params(pcm_handle, SND_PCM_FORMAT_S16_LE, SND_PCM_ACCESS_RW_INTERLEAVED, 1, sampleRate, 1, 50000);
 
 	short *buffer = malloc(samples * sizeof(short));
 	generateSoundWave(buffer, samples, freq, sampleRate);
